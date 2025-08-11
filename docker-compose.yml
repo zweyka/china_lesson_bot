@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  frontend:
+    build: ./frontend
+    container_name: china-nextjs
+    ports:
+      - "3010:3000"
+    env_file:
+      - ./frontend/.env.local
+    restart: unless-stopped
+    volumes:
+      - ./frontend/.env.local:/app/.env.local:ro
